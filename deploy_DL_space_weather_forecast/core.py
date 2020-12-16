@@ -17,19 +17,10 @@ def getHTMLsfu():
 
     source_code=""
     try:
-        #chromeoptions = Options()
-        #chromeoptions.add_argument("--disable-infobars")
-        #chromeoptions.add_argument("--kiosk")
-        rutadriver=back()#str(os.getcwd()))
+        rutadriver=back()
         rutadriver=str(rutadriver)+"geckodriver"
-        #driver = webdriver.Chrome(str(rutadriver))#, 0, chromeoptions)
-        #driver = webdriver.Chrome('/usr/lib/chromium-browser/chromedriver', 0, chromeoptions)
         driver = webdriver.Firefox(executable_path=str(rutadriver))
-        currentday = datetime.datetime.now()
-        #driver = webdriver.Chrome('./chromedriver.exe')
-        #driver.get("https://esc.cbk.waw.pl/products/api.php?parameter=f10_7&start_date=2019%2F01%2F01+00%3A00&end_date="+str(currentday.year)+"%2F"+str(currentday.month)+"%2F"+str(currentday.day)+"+00%3A00&output_type=html")
-        driver.get("https://esc.cbk.waw.pl/products/api.php?parameter=f10_7&start_date="+str(currentday.year-1)+"%2F"+str(currentday.month)+"%2F"+str(currentday.day)+"+00%3A00&end_date="+str(currentday.year)+"%2F"+str(currentday.month)+"%2F"+str(currentday.day)+"+00%3A00&output_type=html")
-        #driver.get("https://esc.cbk.waw.pl/products/api.php?parameter=f10_7&start_date=1750%2F01%2F01+00%3A00&end_date="+str(currentday.year)+"%2F"+str(currentday.month)+"%2F"+str(currentday.day)+"+00%3A00&output_type=html")
+        currentday = datetime.datetime.now()driver.get("https://esc.cbk.waw.pl/products/api.php?parameter=f10_7&start_date="+str(currentday.year-1)+"%2F"+str(currentday.month)+"%2F"+str(currentday.day)+"+00%3A00&end_date="+str(currentday.year)+"%2F"+str(currentday.month)+"%2F"+str(currentday.day)+"+00%3A00&output_type=html")
         sleep(random.uniform(8.0,10.0))
 
 
@@ -57,13 +48,13 @@ def getHTMLsfu():
 # Cell
 def back():
     path=os.getcwd()
-    s=path.split('\\')
+    s=path.split('/')
     length=len(s)
     for pathpart in range(0,length-1):
         if pathpart==0:
-            back_path=s[pathpart]+"\\"
+            back_path=s[pathpart]+"/"
         else:
-            back_path=back_path+s[pathpart]+"\\"
+            back_path=back_path+s[pathpart]+"/"
     return str(back_path)
 
 
