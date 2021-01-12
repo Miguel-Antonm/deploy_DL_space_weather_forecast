@@ -16,8 +16,8 @@ index = {"getHTMLsfu": "00_web_scraping.ipynb",
 modules = ["web_scraping.py",
            "data.py"]
 
-doc_url = "https://Miguel-Antonm.github.io/deploy_DL_space_weather_forecast/"
+doc_url = "https://Miguel-Antonm.github.io/swfd/"
 
-git_url = "https://github.com/Miguel-Antonm/deploy_DL_space_weather_forecast/tree/master/"
+git_url = "https://github.com/Miguel-Antonm/swfd/tree/master/"
 
 def custom_doc_links(name): return None

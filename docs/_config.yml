@@ -60,4 +60,4 @@ sidebars:
 - home_sidebar
 
 theme: jekyll-theme-cayman
-baseurl: /deploy_DL_space_weather_forecast/
+baseurl: /swfd/

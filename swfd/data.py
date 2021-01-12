@@ -8,6 +8,7 @@ import wandb
 import os
 import re
 from fastcore.script import *
+#from swfd
 
 # Cell
 def getInfo(element):
@@ -54,7 +55,6 @@ def downloadpth(path,idsweep):
 
 # Cell
 def loadmodel(path):
-    #login()
     ensembleH3 = "ecstevenson/swe_pytorch_ensemble/2c28yzhn"
     ensembleH5H7 = "ecstevenson/swe_pytorch_ensemble/6gkj1b5m"
     ensembleH10H14 = "ecstevenson/swe_pytorch_ensemble/0mhqqzhc"
