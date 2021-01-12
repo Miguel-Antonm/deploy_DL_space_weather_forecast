@@ -1,2 +1,5 @@
 usuario=''
 password=''
+csvdirectory=''
+wandbkey=''
+pthdirectory=''

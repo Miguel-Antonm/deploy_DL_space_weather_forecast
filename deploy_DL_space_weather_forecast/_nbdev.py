@@ -3,13 +3,18 @@
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
 index = {"getHTMLsfu": "00_web_scraping.ipynb",
-         "back": "00_web_scraping.ipynb",
+         "back": "01_data.ipynb",
          "getCredentials": "00_web_scraping.ipynb",
+         "getInfo": "01_data.ipynb",
          "getDatosSfu": "00_web_scraping.ipynb",
          "sfuScv": "00_web_scraping.ipynb",
-         "main": "00_web_scraping.ipynb"}
+         "web_scraping": "00_web_scraping.ipynb",
+         "main": "01_data.ipynb",
+         "downloadpth": "01_data.ipynb",
+         "loadmodel": "01_data.ipynb"}
 
-modules = ["core.py"]
+modules = ["web_scraping.py",
+           "data.py"]
 
 doc_url = "https://Miguel-Antonm.github.io/deploy_DL_space_weather_forecast/"
 
