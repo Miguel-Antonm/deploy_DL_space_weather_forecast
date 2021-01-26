@@ -3,18 +3,20 @@
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
 index = {"getHTMLsfu": "00_web_scraping.ipynb",
-         "back": "01_data.ipynb",
+         "back": "00_web_scraping.ipynb",
          "getCredentials": "00_web_scraping.ipynb",
-         "getInfo": "01_data.ipynb",
+         "getInfo": "00_web_scraping.ipynb",
          "getDatosSfu": "00_web_scraping.ipynb",
          "sfuScv": "00_web_scraping.ipynb",
          "web_scraping": "00_web_scraping.ipynb",
          "main": "01_data.ipynb",
          "downloadpth": "01_data.ipynb",
-         "loadmodel": "01_data.ipynb"}
+         "downloadmodel": "01_data.ipynb",
+         "loadModel": "02_load_model.ipynb"}
 
 modules = ["web_scraping.py",
-           "data.py"]
+           "data.py",
+           "load_model.py"]
 
 doc_url = "https://Miguel-Antonm.github.io/swfd/"
 
