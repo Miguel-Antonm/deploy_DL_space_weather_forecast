@@ -14,17 +14,17 @@ from .web_scraping import *
 def downloadpth(path,idsweep):
     api = wandb.Api()
     sweep = api.sweep(str(idsweep))
-    numberrun=1
+    runnumber=1
     horizon=-1
     for run in sweep.runs:
         #Comparamos el H anterior con el actual para resetear el contador de carpetas en caso de nuevo H
         if(horizon != run.config["horizon"]):
-            numberrun=1
+            runnumber=1
         else:
-            numberrun=1+numberrun
+            runnumber=1+runnumber
         horizon=run.config["horizon"]
         pathHorizon=str(path)+"ensembleH"+str(horizon)
-        pathfile=str(pathHorizon)+"/sweep_run_"+str(numberrun)+"/"
+        pathfile=str(pathHorizon)+"/sweep_run_"+str(runnumber)+"/"
 
         for file in run.files():
             if(file.name.find("best.pth")==0):

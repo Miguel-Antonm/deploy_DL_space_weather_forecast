@@ -3,7 +3,6 @@
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
 index = {"getHTMLsfu": "00_web_scraping.ipynb",
-         "getHTML": "00_web_scraping.ipynb",
          "back": "00_web_scraping.ipynb",
          "getCredentials": "00_web_scraping.ipynb",
          "getInfo": "00_web_scraping.ipynb",
@@ -17,11 +16,11 @@ index = {"getHTMLsfu": "00_web_scraping.ipynb",
          "downloadmodel": "01_data.ipynb",
          "loadModel": "02_load_model.ipynb",
          "getcsvdata": "02_load_model.ipynb",
-         "forecastModel": "02_load_model.ipynb",
-         "runprediction": "02_load_model.ipynb",
-         "sweepprediction": "02_load_model.ipynb",
-         "sweepMeanVar": "02_load_model.ipynb",
-         "predecir": "02_load_model.ipynb"}
+         "getnamerunfolders": "02_load_model.ipynb",
+         "singleprediction": "02_load_model.ipynb",
+         "ensembleprediction": "02_load_model.ipynb",
+         "ensembleMeanVar": "02_load_model.ipynb",
+         "modelprediction": "02_load_model.ipynb"}
 
 modules = ["web_scraping.py",
            "data.py",
