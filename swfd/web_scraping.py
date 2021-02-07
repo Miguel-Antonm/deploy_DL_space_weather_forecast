@@ -108,7 +108,6 @@ def getValuesSfu(html):
     newsfu=re.findall('<td>1996-02-13 00:00:00</td><td>68</td></tr>(.*?)</tbody></table></div></body></html>',str(html),re.DOTALL)
     oldsfu=re.findall('<tbody><tr>(.*?)<td>1996-02-14',str(html),re.DOTALL)
     datalist=[]
-
     sfudiario=re.findall('20:00:00</td><td>(.*?)</td>',str(newsfu),re.DOTALL)
     for value in sfudiario:
         datalist.append(value)

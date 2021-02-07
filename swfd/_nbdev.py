@@ -15,12 +15,12 @@ index = {"getHTMLsfu": "00_web_scraping.ipynb",
          "downloadpth": "01_data.ipynb",
          "downloadmodel": "01_data.ipynb",
          "loadModel": "02_load_model.ipynb",
-         "getcsvdata": "02_load_model.ipynb",
-         "getnamerunfolders": "02_load_model.ipynb",
-         "singleprediction": "02_load_model.ipynb",
-         "ensembleprediction": "02_load_model.ipynb",
+         "getCsvData": "02_load_model.ipynb",
+         "getNameRunFolders": "02_load_model.ipynb",
+         "singlePrediction": "02_load_model.ipynb",
+         "ensemblePrediction": "02_load_model.ipynb",
          "ensembleMeanVar": "02_load_model.ipynb",
-         "modelprediction": "02_load_model.ipynb"}
+         "modelPrediction": "02_load_model.ipynb"}
 
 modules = ["web_scraping.py",
            "data.py",
