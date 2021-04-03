@@ -3,28 +3,47 @@
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
 index = {"getHTMLsfu": "00_web_scraping.ipynb",
-         "back": "00_web_scraping.ipynb",
          "getCredentials": "00_web_scraping.ipynb",
-         "getInfo": "00_web_scraping.ipynb",
          "getListDataSfu": "00_web_scraping.ipynb",
-         "getValuesSfu": "00_web_scraping.ipynb",
+         "emptydata": "00_web_scraping.ipynb",
          "sfuScv": "00_web_scraping.ipynb",
          "web_scraping": "00_web_scraping.ipynb",
-         "getMaxValueSfu": "00_web_scraping.ipynb",
          "main": "01_data.ipynb",
+         "getrunids": "01_data.ipynb",
          "downloadpth": "01_data.ipynb",
          "downloadmodel": "01_data.ipynb",
+         "NORMALIZE": "03_manageDataAndModel.ipynb",
          "loadModel": "02_load_model.ipynb",
+         "formatdate": "02_load_model.ipynb",
          "getCsvData": "02_load_model.ipynb",
          "getNameRunFolders": "02_load_model.ipynb",
          "singlePrediction": "02_load_model.ipynb",
          "ensemblePrediction": "02_load_model.ipynb",
          "ensembleMeanVar": "02_load_model.ipynb",
-         "modelPrediction": "02_load_model.ipynb"}
+         "modelPrediction": "02_load_model.ipynb",
+         "HORIZONS": "03_manageDataAndModel.ipynb",
+         "COLUMNS": "03_manageDataAndModel.ipynb",
+         "getAllHorizonPrediction": "03_manageDataAndModel.ipynb",
+         "savePredict": "03_manageDataAndModel.ipynb",
+         "loadPredict": "03_manageDataAndModel.ipynb",
+         "updatePredicts": "03_manageDataAndModel.ipynb",
+         "back": "04_resources.ipynb",
+         "getInfo": "04_resources.ipynb",
+         "NBeatsNet": "04_resources.ipynb",
+         "squeeze_last_dim": "04_resources.ipynb",
+         "seasonality_model": "04_resources.ipynb",
+         "trend_model": "04_resources.ipynb",
+         "linear_space": "04_resources.ipynb",
+         "Block": "04_resources.ipynb",
+         "SeasonalityBlock": "04_resources.ipynb",
+         "TrendBlock": "04_resources.ipynb",
+         "GenericBlock": "04_resources.ipynb"}
 
 modules = ["web_scraping.py",
            "data.py",
-           "load_model.py"]
+           "load_model.py",
+           "manageDataAndModel.py",
+           "resources.py"]
 
 doc_url = "https://Miguel-Antonm.github.io/swfd/"
 

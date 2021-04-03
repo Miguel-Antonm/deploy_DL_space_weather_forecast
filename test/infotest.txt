@@ -1,0 +1,3 @@
+csvdirectory='../test/'
+pthdirectory='../test/pth/'
+test='this is a test'

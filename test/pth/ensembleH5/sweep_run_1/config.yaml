@@ -1,0 +1,187 @@
+wandb_version: 1
+
+CHECKPOINT_NAME:
+  desc: null
+  value: models/nbeats-training-checkpoint.th
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.10.14
+    framework: fastai
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    python_version: 3.6.9
+    t:
+      1:
+      - 1
+      - 4
+      - 5
+      2:
+      - 1
+      - 4
+      - 5
+      3:
+      - 1
+      - 3
+      4: 3.6.9
+      5: 0.10.14
+assign_seed:
+  desc: null
+  value: false
+batch_size:
+  desc: null
+  value: max
+cls_adj:
+  desc: null
+  value: false
+cls_datadir:
+  desc: null
+  value: ../data/cls
+cls_forecast_ldate:
+  desc: null
+  value: '2016-12-31'
+cls_forecast_udate:
+  desc: null
+  value: '2021-01-01'
+cls_key:
+  desc: null
+  value: f10.7
+comp_forecast_lower:
+  desc: null
+  value: '2017-01-01T00:00:00'
+comp_forecast_upper:
+  desc: null
+  value: '2020-12-26T00:00:00'
+compdf_fname:
+  desc: null
+  value: models/forecast_comp.pickle
+cuda:
+  desc: null
+  value: true
+data_comp:
+  desc: null
+  value:
+  - esa
+  - cls
+data_src:
+  desc: null
+  value: esa
+date_llim:
+  desc: null
+  value: '1949-12-31'
+date_ulim:
+  desc: null
+  value: '2021-01-01'
+epochs:
+  desc: null
+  value: 10
+esa_archive_fname:
+  desc: null
+  value: ../data/archive/F10.7DailyObservedFluxDensity.txt
+esa_archive_key:
+  desc: null
+  value: f10_7
+esa_forecast_fname:
+  desc: null
+  value: ../data/forecast/F10.7_IndexForecast27day_BGS_2017.txt
+esa_forecast_key:
+  desc: null
+  value: F107_NMH_esforc
+get_daily_method:
+  desc: null
+  value: '20:00'
+grad_steps:
+  desc: null
+  value: 100
+horizon:
+  desc: null
+  value: 5
+incl_test:
+  desc: null
+  value: false
+learning_rate:
+  desc: null
+  value: 0.001
+log_interval:
+  desc: null
+  value: 50
+lookback:
+  desc: null
+  value: 30
+lookback_hfactor:
+  desc: null
+  value: 6H
+loss_func:
+  desc: null
+  value: mse
+metric:
+  desc: null
+  value: mse
+missing_data_method:
+  desc: null
+  value: interp_linear
+model_fname:
+  desc: null
+  value: models/best.pth
+model_type:
+  desc: null
+  value: generic
+momentum:
+  desc: null
+  value: 0.5
+naive_season:
+  desc: null
+  value: 1
+nb_blocks_per_stack:
+  desc: null
+  value: 1
+nb_stacks:
+  desc: null
+  value: 30
+optimiser:
+  desc: null
+  value: RAdam
+plot:
+  desc: null
+  value: false
+preds_test_fname:
+  desc: null
+  value: models/preds_test.pickle
+preds_valid_fname:
+  desc: null
+  value: models/preds_valid.pickle
+seed:
+  desc: null
+  value: 73122012649
+share_weights_in_stack:
+  desc: null
+  value: false
+step:
+  desc: null
+  value: 1
+sweep:
+  desc: null
+  value: true
+test_pct:
+  desc: null
+  value: 0.1
+thetas_dims:
+  desc: null
+  value:
+  - 7
+  - 8
+use_wandb:
+  desc: null
+  value: true
+valid_pct:
+  desc: null
+  value: 0.2
+verbose:
+  desc: null
+  value: true
+weight_decay:
+  desc: null
+  value: 0.0
+width:
+  desc: null
+  value: 64
