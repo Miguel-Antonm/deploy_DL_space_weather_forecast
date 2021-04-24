@@ -84,6 +84,7 @@ def getNameRunFolders(horizon,runshorizonfolder):
 
 
 # Cell
+# Startdate!=gendate stardate=daybefore(gendate)
 def singlePrediction(filepath,startdate):
     net=loadModel(str(filepath))
     lookback=net.backcast_length
