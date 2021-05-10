@@ -21,16 +21,13 @@ RUN pip install --upgrade fastcore selenium torch matplotlib wandb pandas
 
 # Git
 ENV LANG C.UTF-8
-RUN pip install git+https://github.com/fastai/fastai \ 
-                git+https://github.com/muellerzr/fastinference.git \
-                git+https://github.com/vrodriguezf/papersweep.git
 
 # Environmental variables for wandb
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
 
 # Change the ownership of the editable installs within the lib folder
-RUN chown -R $USER:$USER /home/$USER/lib
+#RUN chown -R $USER:$USER /home/$USER/lib
 
 # change default user to $USER
 USER $USER
