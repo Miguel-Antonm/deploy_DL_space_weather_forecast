@@ -5,8 +5,12 @@ from bokeh.plotting import figure, output_file
 from bokeh.io import show
 from bokeh.layouts import layout,column,row
 from bokeh.models import BooleanFilter, CDSView, ColumnDataSource, Toggle
-from swfd.manageDataAndModel import loadPredict
+from swfd.manage_data import loadPredict
 from swfd.load_model import modelPrediction,getCsvData
+
+
+import altair as alt
+from vega_datasets import data
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 st.set_page_config(layout="wide")
@@ -98,31 +102,31 @@ def showprediction(gendate,horizon,allpredictions):
     #----------------------------Bokeh------------------------------
     
     #Predict
-    q = figure(title='Forecast ',x_axis_label='date',y_axis_label='f10.7', x_axis_type="datetime")
+    q = figure(title='Forecast ',x_axis_label='date',y_axis_label='f10_7', x_axis_type="datetime")
     q.toolbar.autohide = True
 
-    datap = pd.DataFrame({'date': predictdate, 'f10.7': mean})
-    allpredict=q.line(x='date', y='f10.7', source=datap, legend_label="Predict", line_width=2,color='red',line_dash="4 4")
+    datap = pd.DataFrame({'date': predictdate, 'f10_7': mean})
+    allpredict=q.line(x='date', y='f10_7', source=datap, legend_label="Predict", line_width=2,color='red',line_dash="4 4")
     datastd = pd.DataFrame({'date': predictdate, 'y1': mean+std,'y2': mean-std})
     q.varea(x='date', y1='y1', y2='y2', source=datastd,alpha=0.1)
 
     if(allpredictions):
         for elem in predict:
-            elemdf=pd.DataFrame({'date': predictdate, 'f10.7': elem})
-            q.line(x='date', y='f10.7', source=elemdf, legend_label="Predict", line_width=2,color='grey',line_dash="4 4",alpha=0.2)
+            elemdf=pd.DataFrame({'date': predictdate, 'f10_7': elem})
+            q.line(x='date', y='f10_7', source=elemdf, legend_label="Predict", line_width=2,color='grey',line_dash="4 4",alpha=0.2)
     #Past
-    pastframe = pd.DataFrame({'date': pastdate, 'f10.7': pastdata})
-    showpastline=q.line(x='date', y='f10.7', source=pastframe, legend_label="all records", line_width=2,color='black',line_dash="4 4")
-    showpastsquare=q.square(x='date', y='f10.7', source=pastframe, legend_label="all records", line_width=2,color='black',line_dash="4 4")
+    pastframe = pd.DataFrame({'date': pastdate, 'f10_7': pastdata})
+    showpastline=q.line(x='date', y='f10_7', source=pastframe, legend_label="all records", line_width=2,color='black',line_dash="4 4")
+    showpastsquare=q.square(x='date', y='f10_7', source=pastframe, legend_label="all records", line_width=2,color='black',line_dash="4 4")
     pastboton = Toggle(label="Past", button_type="success", active=True)
     pastboton.js_link('active', showpastline, 'visible')
     pastboton.js_link('active', showpastsquare, 'visible')
 
     #Future
     if(len(futuredata)>0):
-        futureframe = pd.DataFrame({'date': futuredate, 'f10.7': futuredata})
-        showfutureline=q.line(x='date', y='f10.7', source=futureframe, legend_label="all records", line_width=2,color='black',line_dash="4 4")
-        showfuturesquare=q.square(x='date', y='f10.7', source=futureframe, legend_label="all records", line_width=2,color='black',line_dash="4 4")
+        futureframe = pd.DataFrame({'date': futuredate, 'f10_7': futuredata})
+        showfutureline=q.line(x='date', y='f10_7', source=futureframe, legend_label="all records", line_width=2,color='black',line_dash="4 4")
+        showfuturesquare=q.square(x='date', y='f10_7', source=futureframe, legend_label="all records", line_width=2,color='black',line_dash="4 4")
         futureboton = Toggle(label="Future", button_type="success", active=True)
         futureboton.js_link('active', showfutureline, 'visible')
         futureboton.js_link('active', showfuturesquare, 'visible')
@@ -132,7 +136,55 @@ def showprediction(gendate,horizon,allpredictions):
         layoutex=layout([q], [pastboton],sizing_mode="scale_width")
 
     st.bokeh_chart(layoutex, use_container_width=True)
-    #------------------------------------------------------------
 
+    #----------------------------------------------------------Altair---------------------
+    
+
+    #pastframe = pd.DataFrame({'date': pastdate, 'f10.7': pastdata})
+    
+    
+    
+    #-------------------------------------------------------------------------------------
+    brush = alt.selection(type='interval', encodings=['x'])
+    base = alt.Chart(pastframe).mark_line().encode(
+        x = 'date:T',
+        y = 'f10_7:Q',
+        tooltip=['date', 'f10_7']
+    ).properties(
+        width=1200,
+        height=400
+    )
+
+    
+    upper = base.encode(
+        alt.X('date:T', scale=alt.Scale(domain=brush))
+    )
+
+    lower = base.properties(
+        height=60
+    ).add_selection(brush)
+
+    
+    #st.altair_chart(p, use_container_width=True)
+    #datastd = pd.DataFrame({'date': predictdate, 'y1': mean+std,'y2': mean-std})
+    line = alt.Chart(datap).mark_line().encode(
+        x = 'date:T',
+        y = 'f10_7:Q',
+        tooltip=['date', 'f10_7']
+    ).properties(
+        width=1200,
+        height=400
+    )
+    band = alt.Chart(datastd).mark_area(
+        opacity=0.5
+    ).encode(
+        x='date',
+        y='y2',
+        y2='y1'
+    )
+    #line+band
+
+    p=alt.vconcat(upper+upper, lower)
+    st.altair_chart(p, use_container_width=True)
 menu()
 
