@@ -51,7 +51,7 @@ def updatePredicts():
             while(yesterday >= predictdate):# while yesterday is not in the past of data(predictdate)
 
                 #print(predictdate,yesterday)
-                print("Currently making ", predictdate ," prediction")
+                print("Currently making ", predictdate.strftime("%Y-%m-%d") ," prediction")
                 currentpredict=getAllHorizonPrediction(predictdate)
                 datapredict=pd.concat([pd.DataFrame(currentpredict,columns=COLUMNS), datapredict], ignore_index=True)
                 predictdate=predictdate+datetime.timedelta(1)
@@ -66,7 +66,6 @@ def updatePredicts():
 
 # Cell
 def doNewPredicts(days):
-    path=getInfo("csvdirectory")+"predictionData.csv"
     datapredict=loadPredict()
 
 
@@ -75,7 +74,7 @@ def doNewPredicts(days):
     else:
         datestart=datetime.datetime.today().date()-datetime.timedelta(1)
     for numdays in range(days):
-        print(datestart-datetime.timedelta(numdays))
+        print((datestart-datetime.timedelta(numdays)).strftime("%Y-%m-%d"))
         currentpredict=getAllHorizonPrediction(datestart-datetime.timedelta(numdays))
         datapredict=pd.concat([datapredict,pd.DataFrame(currentpredict,columns=COLUMNS)], ignore_index=True)
         print("updated")

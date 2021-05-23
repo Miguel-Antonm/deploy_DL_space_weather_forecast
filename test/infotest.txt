@@ -1,5 +1,5 @@
 csvdirectory='../test/'
 pthdirectory='../test/pth/'
 test='this is a test'
-user="usuario"
-password="password"
+user='user'
+password='password'

@@ -84,7 +84,7 @@ def showmenu():
     exit=False
     while not exit:
 
-        print("1-Download sfu data\n2-Download model\n3-Prediction settings\n4-Txt settings\n5-Exit")
+        print("\n*******\n1-Download sfu data\n2-Download model\n3-Prediction settings\n4-Txt settings\n5-Exit\n*******\n")
         option=chooseOption()
         if option == 1:
             webScraping()
@@ -101,14 +101,18 @@ def showmenu():
 
 # Cell
 def showPredictionsMenu():
-    if os.path.isfile(getInfo("csvdirectory")+"predictionData.csv"):
+    if os.path.isdir(getInfo("csvdirectory")):
         os.system ("clear")
+        if(not os.path.isfile(getInfo("csvdirectory")+"predictionData.csv")):
+            print("\npredictionData.csv not found, It will create and make new prediction\n")
+            doNewPredicts(1)
+
         exit=False
         while not exit:
-            print("1-Update predictions until today\n2-Extend past predictions\n3-back\n")
+            print("\n*******\n1-Update predictions until today\n2-Extend past predictions\n3-back\n*******\n")
             startdate,enddate=infoDatesPredicts()
             if(startdate!=None and enddate!=None):
-                print("******* \nFirst date loaded is: ",startdate.strftime("%Y-%m-%d"),"\nLast date loaded is: ",enddate.strftime("%Y-%m-%d"))
+                print("\n\nFirst date loaded is: ",startdate.strftime("%Y-%m-%d"),"\nLast date loaded is: ",enddate.strftime("%Y-%m-%d"))
                 option=chooseOption()
             else:
                 print("You must predict first to use the file")
@@ -137,7 +141,7 @@ def showTxtMenu():
     os.system ("clear")
     exit=False
     while not exit:
-        print("1-Change ESA user\n2-Change ESA password\n3-Change csv directory\n4-Change pth directory\n5-Back")
+        print("\n*******\n1-Change ESA user\n2-Change ESA password\n3-Change csv directory\n4-Change pth directory\n5-Show txt\n6-Back\n*******\n")
         option=chooseOption()
         if option == 1:
             changeTxtOption(0,"user")

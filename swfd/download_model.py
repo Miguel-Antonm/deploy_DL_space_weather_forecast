@@ -20,6 +20,7 @@ def getRunIds(nametxt):
                 datalist.remove("ID")
                 while('' in datalist):
                     datalist.remove('')
+                print("Collecting runs on",nametxt)
             finally:
                 myFile.close()
     except (IOError, ValueError, EOFError) as e:
@@ -55,7 +56,6 @@ def downloadModel():
     ensemblerunids=["ensembleH3.txt","ensembleH5H7.txt","ensembleH10H14.txt","ensembleH21H27.txt"]
 
     for ensemble in ensemblerunids:
-        print(ensemble)
         downloadPth(ensemble,path)
 
 # Cell

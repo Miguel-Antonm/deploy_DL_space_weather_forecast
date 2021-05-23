@@ -98,9 +98,8 @@ def getListDataSfu(html):
 # Cell
 def fixDates(datosSfu):
     alldatasfu=[]
-    #Dia actual porque el primer registro siempre sera hoy-1
+    #Dia actual, primer registro siempre sera hoy-1
     csvdaybefore=datetime.datetime.combine(datetime.datetime.today(), datetime.time.min)
-    #csvdaybefore=csvdaybefore+datetime.timedelta(days=1)
     for record in datosSfu:
         realdaybefore=csvdaybefore-datetime.timedelta(days=1)
         csvdaybefore = datetime.datetime.strptime(record[0], '%Y-%m-%d')
@@ -158,7 +157,6 @@ def webScraping():
     originaldate=datetime.datetime(1949, 1, 1)
     sourcecode=getHtmlSfu(currentdate,originaldate)
     pagelogin=re.findall("<title>OpenAM - (.*?)</title>",sourcecode)
-    print(sourcecode)
     if(sourcecode!="" and not(pagelogin) ):
         datosSfu=getListDataSfu(sourcecode)
         datosSfu=fixValues(datosSfu)
