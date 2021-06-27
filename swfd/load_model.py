@@ -119,7 +119,6 @@ def ensembleMeanVar(prediction):
 # Cell
 def modelPrediction(horizon,startdate):
     prediction=ensemblePrediction(horizon,startdate)
-
     mean,std=ensembleMeanVar(prediction)
     return prediction,mean,std
 

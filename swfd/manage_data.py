@@ -72,7 +72,7 @@ def doNewPredicts(days):
     if(not datapredict.empty):
         datestart=pd.to_datetime(datapredict.iloc[-1].Date)-datetime.timedelta(1)
     else:
-        datestart=datetime.datetime.today().date()-datetime.timedelta(1)
+        datestart=datetime.datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)-datetime.timedelta(1)
     for numdays in range(days):
         print((datestart-datetime.timedelta(numdays)).strftime("%Y-%m-%d"))
         currentpredict=getAllHorizonPrediction(datestart-datetime.timedelta(numdays))
