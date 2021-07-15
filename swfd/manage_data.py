@@ -11,6 +11,7 @@ from .resources import getInfo
 import csv
 import pandas as pd
 import pickle
+from fastcore.script import * # @Callparser
 NORMALIZE=707.6
 HORIZONS=[3,5,7,10,14,21,27]
 COLUMNS=['Date','H3','H5','H7','H10','H14','H21','H27']
@@ -39,6 +40,7 @@ def loadPredict():
     return predict
 
 # Cell
+@call_parse
 def updatePredicts():
     path=getInfo("csvdirectory")+"predictionData.csv"
     datapredict=loadPredict()

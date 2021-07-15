@@ -17,7 +17,7 @@ from .manage_data import updatePredicts,doNewPredicts,infoDatesPredicts
 
 # Cell
 def createFile():
-    archi1=open("infouser.txt","w")
+    archi1=open("settings.txt","w")
     archi1.write("user=''\n")
     archi1.write("password=''\n")
     archi1.write("csvdirectory=''\n")
@@ -27,9 +27,8 @@ def createFile():
 # Cell
 def changeTxtOption(line_num,option):
 
-    with open("infouser.txt", 'r') as txt:
+    with open("settings.txt", 'r') as txt:
         lines = txt.readlines()
-        print("prueba1  "+lines[line_num] )
         value=lines[line_num].split("'")[-2]
 
 
@@ -43,7 +42,7 @@ def changeTxtOption(line_num,option):
         if(inputstring!="0"):
             print("prueba"+lines[line_num] +"\n")
             lines[line_num] = option+"='"+inputstring+"'\n"
-            with open("infouser.txt", 'w') as txt:
+            with open("settings.txt", 'w') as txt:
                 txt.writelines(lines)
                 print(option+" update")
 
@@ -51,7 +50,7 @@ def changeTxtOption(line_num,option):
 # Cell
 def showTxtOptions():
     try:
-        with open("infouser.txt", 'r') as txt:
+        with open("settings.txt", 'r') as txt:
             try:
                 lines = txt.readlines()
                 print("**********txt************\n")
@@ -161,6 +160,6 @@ def showTxtMenu():
 # Cell
 @call_parse
 def main():
-    if not os.path.isfile("infouser.txt"):
+    if not os.path.isfile("settings.txt"):
         createFile()
     showmenu()

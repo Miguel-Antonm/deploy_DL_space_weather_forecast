@@ -15,13 +15,6 @@ import numpy as np
 st.set_option('deprecation.showPyplotGlobalUse', False)
 st.set_page_config(layout="wide")
 
-#Colores oscuros
-#colorpast="#3C21FF"
-#colorpredict="#7E26FF"
-#colorfuture="#33AFFF"
-#colorruns="#BFE3F9"
-#colorstd='#5117A5'
-
 colorpast="#F39C12"
 colorpredict="#A93226"
 colorfuture="#2874A6"
@@ -289,7 +282,7 @@ def showprediction(gendate,horizon,allpredictions):
 
 def menuDownload():
         st.subheader('Download record f10.7 ')
-        st.markdown(DownloadSfu(), unsafe_allow_html=True)
+        st.markdown(downloadSfu(), unsafe_allow_html=True)
 
         future,past=infoDatesPredicts()
         if future != None and past !=None:
@@ -395,12 +388,8 @@ def menuManual():
             tooltip=['date', 'f10_7',"variable:N"],
         )
         timeseries=timeseries+recordchart
-        (timeseries & points)
-        #st.markdown("<font color={daycolorselected}>&#149 Prediction</font> <font color='green'>&#149 Sfu Record</font> <font color={url}>&#149 Day selected</font> <font color={url}>&#149 Day not selected</font> <font color={url}>&#149 Std</font>", unsafe_allow_html=True)
-        st.write("Datos SFU: ",sfurecord)
+        (timeseries & points)st.write("Datos SFU: ",sfurecord)
         st.write("Datos prediciones",final)
-    #else:
-        #Error message?
 
 menu()
 

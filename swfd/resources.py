@@ -21,8 +21,8 @@ from torch.nn.functional import mse_loss, l1_loss, binary_cross_entropy, cross_e
 def getInfo(element):
     info=[]
     try:
-        if os.path.isfile(str(os.getcwd())+"/infouser.txt"):
-            txtpath=str(os.getcwd())+"/infouser.txt"
+        if os.path.isfile(str(os.getcwd())+"/settings.txt"):
+            txtpath=str(os.getcwd())+"/settings.txt"
         else:
             txtpath="../test/infotest.txt"
 
